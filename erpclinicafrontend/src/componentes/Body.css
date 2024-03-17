@@ -1,0 +1,21 @@
+  /* En el archivo .css */
+
+.body-container {
+    position: relative;
+    text-align: center;
+  }
+  
+  .button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+  }
+
+  .carousel-container {
+    margin-top: 50px; /* Ajusta el margen para separar el carousel del botón */
+  }
+  .reservar-cita-button {
+    width: auto; /* Establece el ancho automático para que el botón sea del tamaño mínimo */
+    min-width: 120px; /* Establece un ancho mínimo para evitar que el botón sea demasiado pequeño */
+  }

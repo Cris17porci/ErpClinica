@@ -1,0 +1,24 @@
+/* Menu.css */
+.appBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333; /* Cambia el color de fondo según tus preferencias */
+  z-index: 1000; /* Asegúrate de que el menú esté por encima del contenido */
+}
+
+.menuButtons {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  padding: 10px; /* Añade un poco de espacio alrededor de los botones */
+}
+
+.link {
+  text-decoration: none;
+  margin-left: 10px; /* Añade un margen entre los botones */
+}
+
+.link button {
+  color: #ffffff; /* Color blanco */
+  font-weight: bold; /* Negrita */
+}
