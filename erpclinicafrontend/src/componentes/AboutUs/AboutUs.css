@@ -1,0 +1,28 @@
+/* En el archivo AboutUs.css */
+
+/* Estilos para el contenedor del about us */
+
+  /* Estilos para el contenedor del contenido */
+  .about-us-content {
+    display: flex;
+    flex-direction: row; /* Cambia la dirección del flexbox a fila */
+    align-items: center;
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+    margin-top: 20px;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+  }
+  
+  /* Estilos para la imagen */
+  .dental-team-image {
+    width: auto;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  /* Estilos para el texto */
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+  }

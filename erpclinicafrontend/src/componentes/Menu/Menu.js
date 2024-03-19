@@ -1,5 +1,3 @@
-// Menu.js
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'wouter';
 import { useQuery, gql } from '@apollo/client';
@@ -18,22 +16,21 @@ const GET_MENU_ITEMS = gql`
 `;
 
 const Menu = ({ onAppointmentButtonClick }) => { 
-  // Recibe onAppointmentButtonClick como prop
-  const { loading, error, data } = useQuery(GET_MENU_ITEMS);
+  const [isFixed, setIsFixed] = useState(false); // Declarar estado para determinar si el menú está fijo
 
-  // Datos dummy en caso de que no haya resultados o esté cargando
+  const { loading, error, data } = useQuery(GET_MENU_ITEMS);
   const dummyData = [
-    { id: 1, title: "Inicio", url: "/" },
-    { id: 2, title: "Acerca de", url: "#" },
+    { id: 1, title: "Inicio", url: "/inicio" },
+    { id: 2, title: "Acerca de", url: "#about-us" }, // Cambiar URL para desplazarse hasta la sección correspondiente
     { id: 3, title: "Servicios", url: "#" },
     { id: 4, title: "Contacto", url: "#" },
+    { id: 4, title: "Reservar Cita", url: "/inicio/formulario-citas" },
   ];
-  const [isFixed, setIsFixed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsFixed(scrollPosition > 50); // Cambia el valor según la altura de tu encabezado
+      setIsFixed(scrollPosition > 50); // Actualizar el estado según la posición de desplazamiento
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -42,42 +39,44 @@ const Menu = ({ onAppointmentButtonClick }) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleClickAboutUs = (e) => {
+    e.preventDefault(); // Evitar la acción predeterminada del enlace
+    const aboutUsSection = document.getElementById('about-us');
+    if (aboutUsSection) {
+      aboutUsSection.scrollIntoView({ behavior: 'smooth' }); // Desplazarse suavemente hasta la sección "Acerca de nosotros"
+    }
+  };
+  const handleClickInicio = (e) => {
+    e.preventDefault(); // Evitar la acción predeterminada del enlace
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Desplazarse suavemente hasta arriba
+  };
+  
   if (loading) return <p>Cargando...</p>;
   if (error) return (
     <AppBar position={isFixed ? 'fixed' : 'static'} className="appBar">
       <div className="menuButtons">
         {dummyData.map(item => (
-            <Link key={item.id} href={item.url} className="link"> {/* Utiliza Link en lugar de Button */}
-              <Button color="inherit">
-                {item.title}
-              </Button>
-            </Link>
+          <Button key={item.id} onClick={item.title === "Acerca de" ? handleClickAboutUs : item.title === "Inicio" ? handleClickInicio : null} color="inherit">
+            {item.title}
+          </Button>
         ))}
-        {/* Botón para acceder al formulario de cita */}
-        <Link href="/formulario-citas" className="link">
-          <Button color="inherit">Reservar Cita</Button>
-        </Link>
       </div>
     </AppBar>
   );
 
-  // Obtener los elementos del menú de la consulta o usar los datos dummy si no hay resultados
   const menuItems = data.menuItems.length > 0 ? data.menuItems : dummyData;
 
   return (
     <AppBar position={isFixed ? 'fixed' : 'static'} className="appBar">
       <div className="menuButtons">
         {menuItems.map(item => (
-          <Link key={item.id} href={item.url} className="link"> {/* Utiliza Link en lugar de Button */}
+          <Link key={item.id} href={item.url} className="link">
             <Button color="inherit">
               {item.title}
             </Button>
           </Link>
         ))}
-        {/* Botón para acceder al formulario de cita */}
-        <Link href="/formulario-citas" className="link">
-          <Button color="inherit">Reservar Cita</Button>
-        </Link>
       </div>
     </AppBar>
   );

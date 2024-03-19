@@ -2,4 +2,5 @@
     position: fixed;
     width: 100%;
     z-index: 1000; /* Asegúrate de que esté por encima del menú */
+    justify-content: flex-end; /* Alinea el contenido hacia la derecha */
 }

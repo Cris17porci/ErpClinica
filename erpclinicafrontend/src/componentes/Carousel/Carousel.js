@@ -50,6 +50,7 @@ const CarouselComponent = () => {
         autoPlay={true} // Hacer que el Carousel avance automáticamente
         interval={7000} // Definir el intervalo de tiempo en milisegundos
         showThumbs={false}
+        showIndicators={false}
         showStatus={false}
         dynamicHeight={true}
         infiniteLoop={true} // Permite el bucle infinito entre las imágenes

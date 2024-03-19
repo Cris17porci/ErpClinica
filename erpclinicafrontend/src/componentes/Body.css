@@ -1,21 +1,30 @@
-  /* En el archivo .css */
+/* En el archivo Body.css */
 
+/* Estilos para el contenedor principal del cuerpo */
 .body-container {
-    position: relative;
-    text-align: center;
-  }
-  
-  .button-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px;
-  }
+  position: relative;
+  text-align: center;
+}
 
-  .carousel-container {
-    margin-top: 50px; /* Ajusta el margen para separar el carousel del botón */
-  }
-  .reservar-cita-button {
-    width: auto; /* Establece el ancho automático para que el botón sea del tamaño mínimo */
-    min-width: 120px; /* Establece un ancho mínimo para evitar que el botón sea demasiado pequeño */
-  }
+/* Estilos para el contenedor de los botones */
+.button-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+/* Estilos para separar el carousel del botón */
+.carousel-container {
+  margin-top: 30px;
+}
+
+/* Estilos para el botón de reservar cita */
+.reservar-cita-button {
+  width: auto;
+  min-width: 120px;
+}
+.about-us-container {
+  margin-top: 50px; /* Ajusta el margen para separar el about del carousel */
+  float: left; /* Coloca el about a la izquierda */
+}

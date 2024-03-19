@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <AppBar position="static"  className="header">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" >
           Clínica Dental MUR
         </Typography>
       </Toolbar>
